@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css\usereditstyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css\bodybg.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" >Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">SignUp</a>
+    </li>
+</ul>
+<div class="main">
+    <div class="b">
+        <div class="c">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}                
+                    <br>
+                    <h1>Edit  Details</h1>
+                    
+            <table>
+                <tr>
+                    <td><br><label>First Name</label></td>
+                    <td><br><input type="text" name="fname" value="{{users.user.first_name}}"></td>
+                </tr>
+                <tr>
+                    <td><br><label>Last Name</label></td>
+                    <td><br><input type="text" name="lname" value="{{users.user.last_name}}"></td>
+                </tr>
+                <tr>
+                    <td><br><label>User Name</label></td>
+                    <td><br><input type="text" name="uname" value="{{users.user.username}}"></td>
+                </tr>
+                 <tr>
+                    <td><br><label>Age</label></td>
+                    <td><br><input type="text" name="age" value="{{users.age}}"></td>
+                </tr>
+                <tr>
+                    <td><br><label>Password</label></td>
+                    <td><br><input type="password" name="password" value="{{users.user.password}}"></td>
+                </tr>
+                <tr>
+                    <td><br><label>Email</label></td>
+                    <td><br><input type="email" name="email" value="{{users.user.email}}"></td>
+                </tr>
+                <tr>
+                    <td><br><label>Address</label></td>
+                    <td><br><input type="text" name="address" value="{{users.address}}"></td>
+                </tr>
+                <tr>
+                    <td><br><label>Mobile Number</label></td>
+                    <td><br><input type="text" name="number" value="{{users.number}}"></td>
+                </tr>
+                <tr>
+                    
+                        <td><br><label class="form-label" for="form3Example4c">Upload Your Photo</label></td>
+                        <td>
+                        {% if users.image %}
+                        <img class="img" src="{{users.image.url}}">
+                        {% endif %}
+                        <input type="file" name="file" id="form3Example4c" class="form-control" accept="image/*">
+                        </td>
+                      
+                </tr><br>
+                
+                {% comment %} <tr>
+                    <td><label>Course</td>
+                    <td>
+                        <select class="form-control" name="sel">
+                            {% for course in courses %}
+                            <option value="{{course.id}}">{{course.course_name}}</option>
+                            {% endfor %}
+                    </td>
+                </tr> {% endcomment %}
+                
+                <tr>
+                    <td>
+                    </td>
+                    <td>
+                        <br><input type="submit" value="Update"></td>
+        
+                </tr>
+            </table>
+        
+        </form>
+        </div>
+    </div>
+</div>
+    
+</body>
+</html>

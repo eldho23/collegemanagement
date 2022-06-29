@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css\profilestyle.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css\bodybg.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" href="{% url 'user_home' %}">Home</a>
+    </li>
+</ul><br><br><br>
+
+      <center>
+      <div class="card" style ="width:21rem">
+        {% if users.image %}
+        <img src="{{ users.image.url }}" class="card-img-top">
+        {% else %}
+        <img src="{% static 'image/default.png' %}">
+        {% endif %} 
+        <div class="card-body">
+            <table>
+         <h5 class="card-title">{{users.user.username}}</h5>
+          <p class="card-text">EmailAddress{{users.user.email}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Address- {{users.address}}</li>
+          <li class="list-group-item">Age- {{users.age}}</li>
+          <li class="list-group-item">Mobile Number-{{users.number}}</li>
+          <li class="list-group-item">Course-{{users.course.course_name}}</li>
+        </ul>
+        <div class="card-body">
+          <a href="{% url 'user_home' %}" class="card-link">Go Back</a>
+          
+        </div>
+    </table>
+      </div>
+    </center>
+</body>
+</html>

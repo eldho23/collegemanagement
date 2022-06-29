@@ -1,0 +1,49 @@
+<html lang="en">
+    <head>
+      {% load static %}
+      <link rel="stylesheet" type="text/css" href="{% static 'css\adminhomestyle.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css\bodybg.css' %}">
+        <title>
+            Website
+        </title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+        <!-- Bootstrap CSS -->
+        
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <style>
+        
+        </style>
+      </head>
+    <body>
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'admin_logout' %}">Logout</a>
+        </li>
+    </ul><br><br><br>
+
+    <center>
+   <div class="ub">
+    <a href="{% url 'add_student' %}"><button class="b11">Add Students</button></a>
+    <a href="{% url 'add_course' %}"><button class="b11">Add Course</button></a>
+    <a href="{% url 'show_teacher' %}"><button class="b13">Show Teachers</button></a>
+    <a href="{% url 'show_details' %}"><button class="b13">Show Students</button></a>
+  </div>  
+  
+  </center>
+
+
+    </body>
+    </html>

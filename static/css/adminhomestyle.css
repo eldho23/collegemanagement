@@ -1,0 +1,54 @@
+
+
+.main{
+	width:500px;
+	margin:80px 30px;
+}
+
+/* userhome style */
+
+.ub button{
+	padding:10px 10px;
+	margin:20px 10px;
+	width:400px;
+	height:400px;
+	text-align:top;
+	position:relative;
+	border:none;
+	border-radius:5px;
+	transition-duration:.60s;
+	box-shadow:0 10px 30px rgba(0,0,0,0.2);
+	
+	
+}
+.ub a button{
+	box-shadow:0 10px 30px rgba(0,0,0,0.2);
+}
+.ub a button:hover{
+	box-shadow:0 10px 30px rgba(0,0,0,0.5);
+	transform:scale(0.98);
+}
+.b11{
+	background-image:linear-gradient(rgb(62, 208, 206,0.5),rgba(255, 255, 255, 0.9)),url('../image/edit.png');
+	background-size:100%;
+    background-repeat: no-repeat;
+    background-position: center;
+	font-size:30px;
+	color:transparent;
+	transition:0.4s ease-in-out;
+}
+.b11:hover{
+	color:rgb(255, 0, 0);
+}
+.b13{
+	background-image:linear-gradient(rgb(62, 208, 206,0.5),rgba(255, 255, 255, 0.9)),url('../image/view.jpg');
+    background-position: center;
+	background-size:100%;
+    background-repeat: no-repeat;
+	font-size:30px;
+	color:transparent;
+	transition:0.4s ease-in-out;
+}
+.b13:hover{
+	color:rgb(255, 0, 0);
+}

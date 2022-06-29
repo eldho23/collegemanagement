@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css\signupstyle.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css\bodybg.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" href="#">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#" >Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="#">SignUp</a>
+    </li>
+</ul>
+<div class="main">
+  <div class="b">
+    <div class="c">
+      <section>
+        <form method="post" action="{% url 'add_teacherdb' %}" enctype="multipart/form-data"> 
+                  
+          {% csrf_token %}<br>
+        <h3 style="color: black;">Teacher Registration</h3>
+        <br>
+        <div class="col-md-12">
+          {% for message in messages %}
+          <h5>
+              <div class="alert alert-danger mt-5">
+                  {{ message }}
+              </div>
+          </h5>
+              {% endfor %}
+      </div>
+        <div class="form-outline mb-4">
+          
+          <input type="text" placeholder="First Name" name="fname" class="form-control "  null=True/>
+          
+        </div>
+        <div class="form-outline mb-4">
+          
+          <input type="text" placeholder="Last Name" name="lname" class="form-control "  null=True/>
+          
+        </div>
+        <div class="form-outline mb-4">
+          
+          <input type="text" placeholder="User Name" name="uname" class="form-control "  null=True/>
+          
+        </div>
+  
+        <div class="form-outline mb-4">
+          
+          <input type="password" placeholder="Password" name="password" class="form-control "  null=True/>
+          
+        </div>
+        <div class="form-outline mb-4">
+          
+          <input type="password" placeholder="Confirm Password" name="cpassword" class="form-control "  null=True/>
+          
+        </div>
+        <div class="form-outline mb-4">
+          <input type="text" placeholder="Enter Address"  name="address" class="form-control " />
+         
+        </div>
+        <div class="form-outline mb-4">
+          <input type="text" placeholder="Enter Age"  name="age" class="form-control " />
+         
+        </div>
+        <div class="form-outline mb-4">
+          <input type="email" placeholder="Email Address"  name="email" class="form-control " />
+         
+        </div>
+        <div class="form-outline mb-4">
+          <input type="text" placeholder="Contact Number"  name="number" class="form-control " />
+         
+        </div>
+        <div class="form-outline mb-4">
+          <label>Upload Your Photo</label>
+          <input type="file" name="file" id="form3Example4c" class="form-control" accept="image/*">
+            
+          </div>
+          <div class="x">
+            <label>Select Course</label>
+            <select class="form-control" name="sel">
+                {% for c in course %}
+                <option value="{{c.id}}">{{c.course_name}}</option>
+                {% endfor %}          
+          </div>
+          
+            <br><input type="Submit" value="Submit">
+          
+               
+  
+      </form>
+  
+      </section>
+    </div>
+  </div>
+</div>    
+</body>
+</html>

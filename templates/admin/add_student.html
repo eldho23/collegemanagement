@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css\addstudentdtyle.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css\bodybg.css' %}">
+  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous"> 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+   <ul class="nav nav-tabs" id="myTab" role="tablist">            
+            <li class="nav-item ">
+              <a class="nav-link " href="{% url 'add_course' %}">Add Course</a>
+            </li> 
+            <li class="nav-item ">
+              <a class="nav-link " href="{% url 'add_student' %}">Add Student</a>
+            </li> 
+              <li class="nav-item ">
+              <a class="nav-link " href="{% url 'show_details' %}">Show Student Details</a>
+            </li>  
+            <li class="nav-item ">
+              <a class="nav-link " href="{% url 'show_teacher' %}">Show Teacher Details</a>
+            </li>  
+            <li class="nav-item ">
+                <a class="nav-link" href="{% url 'admin_logout' %}">Logout</a>
+              </li>
+             
+          </ul>
+        </div>
+        <div class="main">
+            <div class="b">
+              <div class="c">
+                <section>
+                  <form method="post" action="{% url 'add_studentdb' %}">
+                        {% csrf_token %}
+                        <br>
+                      <h3 style="color: black;">Add Student</h3><br>
+          
+                      <div class="form-outline mb-4">
+                        
+                        <input type="text" placeholder="Enter Name" name="name" class="form-control "  null=True/>
+                        
+                      </div>
+          
+                      <div class="form-outline mb-4">
+                        <input type="text" placeholder="Address"  name="address" class="form-control " />
+                       
+                      </div>
+                      <div class="form-outline mb-4">
+                        <input type="text" placeholder="Enter Age"  name="age" class="form-control " />
+                       
+                      </div>
+                      <div class="x">
+                        <input type="date" placeholder="Joining Date"  name="jdate" class="form-control " />
+                       
+                      </div>
+                      
+                      <div class="x">
+                        <select class="form-control" name="sel">
+                            {% for c in course %}
+                            <option value="{{c.id}}">{{c.course_name}}</option>
+                            {% endfor %}
+                            
+                      </div>
+                      
+                      <input type="Submit" value="Submit">
+                      
+          
+                    </form>   
+          </section>
+              </div>
+          </div>
+        </div>
+          
+            
+      
+    
+
+    </body>
+    </html>

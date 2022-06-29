@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+  <link rel="stylesheet" type="text/css" href="{% static 'css\adminhomestyle.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css\bodybg.css' %}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"> 
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <style>
+    th,tr{
+        background-color:transparent;
+        width:180px;
+        height:40px;
+    }
+    </style>
+</head>
+<body>
+  <body>
+  <ul class="nav nav-tabs" id="myTab" role="tablist">            
+    <li class="nav-item ">
+      <a class="nav-link " href="{% url 'add_course' %}">Add Course</a>
+    </li> 
+    <li class="nav-item ">
+      <a class="nav-link " href="{% url 'add_student' %}">Add Student</a>
+    </li> 
+      <li class="nav-item ">
+      <a class="nav-link " href="{% url 'show_details' %}">Show Student Details</a>
+    </li>  
+    <li class="nav-item ">
+      <a class="nav-link " href="{% url 'show_teacher' %}">Show Teacher Details</a>
+    </li>  
+    <li class="nav-item ">
+        <a class="nav-link" href="{% url 'admin_logout' %}">Logout</a>
+      </li>
+     
+  </ul><br><br><br>
+    </div>
+  </nav>
+  <center>
+    <h1>Show Teacher Details</h1><br><br>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>FIRST NAME</th>
+                <th>LAST NAME</th>
+                <th>USER NAME</th>
+                <th>EMAIL</th>
+                <th>ADDRESS</th>
+                <th>AGE</th>
+                <th>CONTACT NUMBER</th>
+                <th>COURSE</th>
+                <th>IMAGE</th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody>
+            
+                {% for usr in user %}
+                <tr>
+                  <td>{{usr.user.first_name}}</td>
+                  <td>{{usr.user.last_name}}</td>
+                  <td>{{usr.user.username}}</td>
+                  <td>{{usr.user.email}}</td>
+                  <td>{{usr.address}}</td>
+                  <td>{{usr.age}}</td>
+                  <td>{{usr.number}}</td>
+                  <td>{{usr.course.course_name}}</td>
+                  
+                  
+                  <td>
+                    
+                    {% if usr.image %}
+                    <img style="width:30%;" src="{{ usr.image.url }}">
+                    {% else %}
+                    <img style="width:30%;" src="{% static 'images/default1.jpg' %}">
+                    {% endif %}
+                  </td>
+                  <td><a href="{% url 'delete' usr.id %}">Delete</a></td> 
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+</body>
+</html>
